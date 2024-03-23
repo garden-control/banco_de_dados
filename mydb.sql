@@ -2,14 +2,32 @@ CREATE DATABASE clima_care;
 use clima_care;
 
 CREATE TABLE usuario (
-    id int PRIMARY KEY,
+    id int PRIMARY KEY AUTO_INCREMENT,
     nome varchar(30) NOT NULL,
     senha varchar(30) NOT NULL
 );
 
 CREATE TABLE estacao (
-    id int PRIMARY KEY,
+    id int PRIMARY KEY AUTO_INCREMENT,
     localizacao varchar(30)
+);
+
+CREATE TABLE cli_entrada (
+    id int AUTO_INCREMENT,
+    id_estacao int REFERENCES estacao(id),
+    id_usuario int REFERENCES usuario(id),
+    PRIMARY KEY (id, id_estacao, id_usuario),
+
+    msg varchar(1024)
+);
+
+CREATE TABLE cli_saida (
+    id int AUTO_INCREMENT,
+    id_estacao int REFERENCES estacao(id),
+    id_usuario int REFERENCES usuario(id),
+    PRIMARY KEY (id, id_estacao, id_usuario),
+    
+    msg varchar(1024)
 );
 
 CREATE TABLE leitura (
