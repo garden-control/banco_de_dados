@@ -12,6 +12,14 @@ CREATE TABLE estacao (
     localizacao varchar(30)
 );
 
+CREATE TABLE estacao_usuario (
+    id_usuario INT,
+    id_estacao INT,
+    PRIMARY KEY (id_usuario, id_estacao),
+
+    nome varchar(30)
+);
+
 CREATE TABLE cli_entrada (
     id int AUTO_INCREMENT,
     id_estacao int REFERENCES estacao(id),
