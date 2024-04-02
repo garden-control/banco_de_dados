@@ -8,13 +8,13 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE estacao (
-    id int PRIMARY KEY AUTO_INCREMENT,
+    id char(8) PRIMARY KEY,
     localizacao varchar(30)
 );
 
 CREATE TABLE estacao_usuario (
-    id_usuario INT,
-    id_estacao INT,
+    id_usuario INT REFERENCES usuario(id),
+    id_estacao char(8) REFERENCES estacao(id),
     PRIMARY KEY (id_usuario, id_estacao),
 
     nome varchar(30)
@@ -22,7 +22,7 @@ CREATE TABLE estacao_usuario (
 
 CREATE TABLE cli_entrada (
     id int AUTO_INCREMENT,
-    id_estacao int REFERENCES estacao(id),
+    id_estacao char(8) REFERENCES estacao(id),
     id_usuario int REFERENCES usuario(id),
     PRIMARY KEY (id, id_estacao, id_usuario),
 
@@ -31,7 +31,7 @@ CREATE TABLE cli_entrada (
 
 CREATE TABLE cli_saida (
     id int AUTO_INCREMENT,
-    id_estacao int REFERENCES estacao(id),
+    id_estacao char(8) REFERENCES estacao(id),
     id_usuario int REFERENCES usuario(id),
     PRIMARY KEY (id, id_estacao, id_usuario),
     
@@ -40,7 +40,7 @@ CREATE TABLE cli_saida (
 
 CREATE TABLE leitura (
     id int AUTO_INCREMENT,
-    id_estacao int REFERENCES estacao(id),
+    id_estacao char(8) REFERENCES estacao(id),
     PRIMARY KEY (id, id_estacao),
     
     umidade_ar float,
@@ -53,7 +53,7 @@ CREATE TABLE leitura (
 
 CREATE TABLE controlador (
     id int AUTO_INCREMENT,
-    id_estacao int REFERENCES estacao(id),
+    id_estacao char(8) REFERENCES estacao(id),
     PRIMARY KEY (id, id_estacao),
 
     bomba TINYINT,
