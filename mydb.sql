@@ -16,7 +16,7 @@ CREATE TABLE estacao (
 CREATE TABLE estacao_usuario (
     id_usuario INT REFERENCES usuario(id),
     id_estacao char(8) REFERENCES estacao(id),
-    PRIMARY KEY (id_usuario, id_estacao)
+    PRIMARY KEY (id_usuario, id_estacao),
 
     /*
     00000000b => direito de leitura
@@ -24,7 +24,7 @@ CREATE TABLE estacao_usuario (
     00000010b => direito de alterar direitos
     00010000b => direito de enviar comandos (cli)
     */
-    direitos BINARY(1) DEFAULT 0;
+    direitos BINARY(1) DEFAULT 0
 );
 
 CREATE TABLE cli_entrada (
