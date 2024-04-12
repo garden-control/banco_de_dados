@@ -36,7 +36,7 @@ CREATE TABLE cli_entrada (
     msg varchar(1024)
 );
 
-CREATE TABLE cli_saida (
+CREATE TABLE cli_log (
     id int AUTO_INCREMENT,
     id_estacao char(8) REFERENCES estacao(id),
     id_usuario int REFERENCES usuario(id),
