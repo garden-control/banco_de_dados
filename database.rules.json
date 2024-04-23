@@ -1,0 +1,40 @@
+{
+  "rules": {
+    "usuarios": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+        "estacoes": {
+          "$indice_estacao": {
+            ".read": "
+              root
+                .child('usuarios')
+                .child($uid)
+                .child('estacoes')
+                .child($indice_estacao)
+                .child('usuarios')
+            		.child(auth.uid)
+            		.exists()
+            ",
+            ".write": "
+            	auth.uid === 'wUEbNcjTCuYhYxZ0kDLGnBbqKLU2'
+            ",
+            "usuarios": {
+              "$fuid": {
+                "cli": {
+                  ".read": "$fuid == auth.uid",
+                  "cmd": {
+                    ".write": "$fuid == auth.uid"
+                  },
+                  "log": {
+                    ".write": "$fuid == auth.uid"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

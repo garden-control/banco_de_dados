@@ -1,0 +1,44 @@
+{
+    "usuarios": {
+        "c6LDRVhJvcfDdS8GGvSTDR1Yrbr1": {
+            "email": "exemplo@email.com",
+            "nome": "nome",
+            "estacoes": [
+                {
+                    "ctrl": {
+                        "horarios": [
+                            "hh:mm"
+                        ]
+                    },
+                    "leituras": [
+                        {
+                            "pluviometro": 0,
+                            "temperatura": 0,
+                            "umidade_ar": 0,
+                            "umidade_solo": 0
+                        }
+                    ],
+                    "status": {
+                        "ctrl": false,
+                        "bomba": false,
+                        "reserv": 0,
+                        "ram": 0
+                    },
+                    "localizacao": "",
+                    "usuarios": {
+                        "c6LDRVhJvcfDdS8GGvSTDR1Yrbr1": {
+                            "cli": {
+                                "cmd": "comando",
+                                "log": [
+                                    "> comando",
+                                    "resposta"
+                                ]
+                            },
+                            "permissao": 0
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
